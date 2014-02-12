@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Karnati</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="page1">
+<div id="main">
+  <!-- header -->
+  <div id="header">
+    <ul class="site-nav">
+      <li><a href="/home/s/" class="act">Home</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="contact-us.html">Contact Us</a></li>
+      <li><% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+<% end %></li>
+    </ul>
+    <div class="logo"><a href="#"><img src="<%=asset_path'logo.gif' %>" alt="" /></a></div>
+  </div>
+  <!-- content -->
+  <div id="content">
+    <div class="indent1">
+      <div class="indent">
+     <%= yield %>
+      </ul>
+    </div>
+  </div>
+  <!-- footer -->
+  <div id="footer">
+    <div class="indent">
+      <div class="fleft">Copyright - Type in Your Name</div>
+      <div class="fright">Designed by: <a href="http://www.templates.com"><img alt="" src="images/templates-logo.gif" /></a>&nbsp; Your Provider of <a href="http://www.templates.com">Website Templates</a></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript"> Cufon.now(); </script>
+<div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div></body>
+</html>
